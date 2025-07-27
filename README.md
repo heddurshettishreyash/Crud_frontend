@@ -1,4 +1,4 @@
-# 🏢 Organization Management Dashboard
+# 🏢 Crud operations dashboard
 
 [Live Demo 🚀](https://crud-frontend-1-rvb7.onrender.com/)
 
