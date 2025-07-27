@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 interface SortingProps {
   sortBy: string;
@@ -7,20 +7,25 @@ interface SortingProps {
   options: { value: string; label: string }[];
 }
 const inputStyle = {
-  height: '30px',
-  width: '160px',
-  fontSize: '14px',
-  padding: '4px 8px',
+  height: "30px",
+  width: "160px",
+  fontSize: "14px",
+  padding: "4px 8px",
 };
 
 const buttonStyle = {
-  height: '30px',
-  width: '70px',
-  fontSize: '14px',
-  padding: '4px 12px',
+  height: "30px",
+  width: "70px",
+  fontSize: "14px",
+  padding: "4px 12px",
 };
 
-export const DyanamicSorting: React.FC<SortingProps> = ({ sortBy, direction, onSortChange, options }) => {
+export const DyanamicSorting: React.FC<SortingProps> = ({
+  sortBy,
+  direction,
+  onSortChange,
+  options,
+}) => {
   const [localSortBy, setLocalSortBy] = useState<string>(sortBy);
   const [localDirection, setLocalDirection] = useState<string>(direction);
 
@@ -36,7 +41,8 @@ export const DyanamicSorting: React.FC<SortingProps> = ({ sortBy, direction, onS
           className="form-select"
           style={inputStyle}
           value={localSortBy}
-          onChange={(e) => setLocalSortBy(e.target.value)}>
+          onChange={(e) => setLocalSortBy(e.target.value)}
+        >
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -50,12 +56,17 @@ export const DyanamicSorting: React.FC<SortingProps> = ({ sortBy, direction, onS
           className="form-select"
           style={inputStyle}
           value={localDirection}
-          onChange={(e) => setLocalDirection(e.target.value)}>
+          onChange={(e) => setLocalDirection(e.target.value)}
+        >
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
         </select>
       </div>
-      <button className="btn btn-primary" style={buttonStyle} onClick={handleSort}>
+      <button
+        className="btn btn-primary"
+        style={buttonStyle}
+        onClick={handleSort}
+      >
         Sort
       </button>
     </div>

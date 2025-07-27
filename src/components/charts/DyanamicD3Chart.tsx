@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { DynamicChartProps } from "../../types/DyanamicChart";
 
@@ -114,7 +114,7 @@ const DynamicD3Chart: React.FC<DynamicChartProps> = ({
         .attr("width", x.bandwidth())
         .attr("height", (d) => height - margin.top - margin.bottom - y(d.value))
         .attr("fill", "steelblue")
-        .on("mouseover", (event, d) => {
+        .on("mouseover", (d) => {
           tooltip.style("visibility", "visible").text(`${d.name}: ${d.value}`);
         })
         .on("mousemove", (event) => {
@@ -147,10 +147,10 @@ const DynamicD3Chart: React.FC<DynamicChartProps> = ({
         .enter()
         .append("path")
         .attr("d", arc)
-        .attr("fill", (d, i) => color(i.toString())!)
+        .attr("fill", (i) => color(i.toString())!)
         .attr("stroke", "#fff")
         .style("stroke-width", "2px")
-        .on("mouseover", (event, d) => {
+        .on("mouseover", (d) => {
           tooltip
             .style("visibility", "visible")
             .text(`${d.data.name}: ${d.data.value}`);
@@ -214,7 +214,7 @@ const DynamicD3Chart: React.FC<DynamicChartProps> = ({
         .attr("cy", (d) => y(d.value))
         .attr("r", 5)
         .attr("fill", "steelblue")
-        .on("mouseover", (event, d) => {
+        .on("mouseover", (d) => {
           tooltip.style("visibility", "visible").text(`${d.name}: ${d.value}`);
         })
         .on("mousemove", (event) => {

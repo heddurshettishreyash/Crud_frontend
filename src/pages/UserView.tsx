@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { DynamicTable } from "../components/tables/DynamicTable";
 import { useForm } from "react-hook-form";
 import { User } from "../types/User";
@@ -18,14 +18,11 @@ export default function UserView() {
   const [sortBy, setSortBy] = useState<string>("userName");
   const [direction, setDirection] = useState<string>("asc");
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(5);
+  const [pageSize] = useState<number>(5);
   const [filterType, setFilterType] = useState<string>("userName");
   const [filterValue, setFilterValue] = useState<string>("");
 
-  const {
-    reset,
-    formState: { errors },
-  } = useForm<User>();
+  const { reset } = useForm<User>();
 
   const columns = [
     { key: "userId", label: "User ID" },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PaginationProps {
   currentPage: number;
@@ -6,17 +6,24 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-export const DyanamicPagination: React.FC<PaginationProps> = ({ currentPage, pageSize, onPageChange }) => {
+export const DyanamicPagination: React.FC<PaginationProps> = ({
+  currentPage,
+  onPageChange,
+}) => {
   return (
     <div className="d-flex justify-content-between align-items-center mt-3">
       <button
         className="btn btn-outline-secondary"
         onClick={() => onPageChange(currentPage - 1)}
-        disabled={currentPage === 0}>
+        disabled={currentPage === 0}
+      >
         Previous
       </button>
 
-      <button className="btn btn-outline-secondary" onClick={() => onPageChange(currentPage + 1)}>
+      <button
+        className="btn btn-outline-secondary"
+        onClick={() => onPageChange(currentPage + 1)}
+      >
         Next
       </button>
     </div>

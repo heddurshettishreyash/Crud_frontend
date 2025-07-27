@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { DynamicTable } from "../components/tables/DynamicTable";
 import { useForm } from "react-hook-form";
 import { Application } from "../types/Application";
@@ -18,7 +18,7 @@ export default function ApplicationView() {
   const [sortBy, setSortBy] = useState<string>("appName");
   const [direction, setDirection] = useState<string>("asc");
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(5);
+  const [pageSize] = useState<number>(5);
   const [filterType, setFilterType] = useState<string>("appType");
   const [filterValue, setFilterValue] = useState<string>("");
 
@@ -79,10 +79,7 @@ export default function ApplicationView() {
       validation: { message: "Application Type must not be null" },
     },
   ];
-  const {
-    reset,
-    formState: { errors },
-  } = useForm<Application>();
+  const {} = useForm<Application>();
 
   const fetchApplications = async () => {
     try {

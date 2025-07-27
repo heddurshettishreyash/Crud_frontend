@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { DynamicTable } from "../components/tables/DynamicTable";
 import { useForm } from "react-hook-form";
 import { Organization } from "../types/Organization";
@@ -19,13 +18,10 @@ export default function OrganizationView() {
   const [sortBy, setSortBy] = useState<string>("orgName");
   const [direction, setDirection] = useState<string>("asc");
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [pageSize, setPageSize] = useState<number>(5);
+  const [pageSize] = useState<number>(5);
   const [filterType, setFilterType] = useState<string>("orgName");
   const [filterValue, setFilterValue] = useState<string>("");
-  const {
-    reset,
-    formState: { errors },
-  } = useForm<Organization>();
+  const { reset } = useForm<Organization>();
   const columns = [
     { key: "orgId", label: "Org ID" },
     {
