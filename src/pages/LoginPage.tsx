@@ -14,7 +14,7 @@ function LoginPage({ onLogin }: { onLogin: () => void }) {
       const action = isRegistering ? "register" : "login";
       const url = `https://crud-backend-lfj2.onrender.com/login/${action}`;
 
-      const response = await axios.post(url, null, {
+      const response = await axios.post(url, {
         params: {
           username: email,
           password: password,
