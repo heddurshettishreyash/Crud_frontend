@@ -98,6 +98,7 @@ function LoginPage({ onLogin }: { onLogin: () => void }) {
               </a>
             </>
           ) : (
+            //
             <>
               Not a member?{" "}
               <a href="#!" onClick={() => setIsRegistering(true)}>
