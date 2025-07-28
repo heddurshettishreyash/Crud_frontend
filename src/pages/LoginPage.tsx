@@ -15,10 +15,8 @@ function LoginPage({ onLogin }: { onLogin: () => void }) {
       const url = `https://crud-backend-lfj2.onrender.com/login/${action}`;
 
       const response = await axios.post(url, {
-        params: {
-          username: email,
-          password: password,
-        },
+        username: email,
+        password: password,
       });
 
       if (response.status === 200) {
