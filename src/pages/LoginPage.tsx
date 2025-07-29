@@ -83,7 +83,11 @@ function LoginPage({ onLogin }: { onLogin: () => void }) {
             block
             type="submit"
             style={{
-              maxHeight: "50px",
+              height: "50px",
+              minWidth: "100%",
+              fontSize: "16px",
+              lineHeight: "50px",
+              fontWeight: "bold",
             }}
           >
             {isRegistering ? "Register" : "Sign In"}
